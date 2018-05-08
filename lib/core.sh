@@ -10,6 +10,10 @@ if [[ ! -v POWALINE_LIB_DIR ]]; then
   POWALINE_LIB_DIR="${POWALINE_ROOT_DIR}/lib"
 fi
 
+if [[ ! -v POWALINE_PLUGIN_DIR ]]; then
+  POWALINE_PLUGIN_DIR="${POWALINE_ROOT_DIR}/plugins"
+fi
+
 if [[ ! -v utils ]]; then
   source "${POWALINE_LIB_DIR}/utils.sh"
 fi

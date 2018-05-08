@@ -6,12 +6,6 @@ source "${POWALINE_LIB_DIR}/core.sh"
 
 source "${POWALINE_PLUGIN_DIR}/current_theme.sh"
 
-#ALL CAPS NAMESPACED: global, namespaced and put into parent shell
-#ALL CAPS: global const
-#ALL CAPS _SEGMENT: not a constant, just a the body of the segment
-#PascalCase: state variable
-#snake_case: local
-
 Output=""
 PreviousSeperator=""
 Powaline=""
