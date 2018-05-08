@@ -22,3 +22,4 @@ to where ever you put
 * no Erlang support
 * no Java support
 * no HG or Svn Support
+* only uses asdf-vm
