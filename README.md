@@ -23,3 +23,4 @@ to where ever you put
 * no Java support
 * no HG or Svn Support
 * only uses asdf-vm
+* no .ssh pipe  awareness
