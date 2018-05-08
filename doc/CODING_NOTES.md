@@ -1,7 +1,7 @@
 
 
 
-# should be true
+should be true
 ALL CAPS NAMESPACED: global, namespaced and put into parent shell
 ALL CAPS: global const
 ALL CAPS _SEGMENT: not a constant, just a the body of the segment
