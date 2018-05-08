@@ -1,13 +1,12 @@
 
 
 
-should be true
-
-ALL CAPS NAMESPACED: global, namespaced and put into parent shell
-ALL CAPS: global const
-ALL CAPS _SEGMENT: not a constant, just a the body of the segment
-PascalCase: state variable
-snake_case: local
+should be true:
+* ALL CAPS NAMESPACED: global, namespaced and put into parent shell
+* ALL CAPS: global const
+* ALL CAPS _SEGMENT: not a constant, just a the body of the segment
+* PascalCase: state variable
+* snake_case: local
 
 if stmnts are woefully inconsistent
 
