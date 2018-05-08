@@ -18,3 +18,7 @@ to where ever you put
 
 . $HOME/.asdf/completions/asdf.bash
 ```
+## Known Issues
+* no Erlang support
+* no Java support
+* no HG or Svn Support
