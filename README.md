@@ -4,7 +4,7 @@ Inspired by https://github.com/b-ryan/powerline-shell, but written in bash for s
 
 On my mac, it usually clocks in around 0m0.45\~s (my linux machine clocks in at .3\~ with a smaller processor so your results may vary)
 
-![powline time](https://i.imgur.com/6OQd0uS.png)
+![powline time](https://i.imgur.com/TGHN58h.png)
 
 Also it doesn't have to be configured on two lines like the above, that is just the default to show the most segments/components at once
 
