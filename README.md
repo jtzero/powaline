@@ -16,6 +16,7 @@ Also it doesn't have to be configured on two lines like the above, that is just 
 ## Install
 
 `git clone https://github.com/jtzero/powaline.git ~/.powaline`
+
 add `source ~/.powaline/powaline.sh`
 
 to where ever you put
