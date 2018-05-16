@@ -80,10 +80,12 @@ function build_branch() {
   local detached="${5}"
   local bg_color_esc="$(bg_esc $GIT_BRANCH_SEGMENT_CLEAN_BG)"
   local fg_color_esc="$(fg_esc $GIT_BRANCH_SEGMENT_CLEAN_FG)"
-  local detached_content=""
+  local symbol=""
   current_segment=""
   if [ "${detached}" != "0" ]; then
-    detached_content="${GIT_DETACHED_SEGMENT_SYMBOL} "
+    symbol="${GIT_BRANCH_SEGMENT_DETACHED_SYMBOL} "
+  else
+    symbol="${GIT_BRANCH_SEGMENT_SYMBOL} "
   fi
   if [ ! "${branch_name}" = "" ]; then
     if [ "${status}" != "000" ]; then
@@ -95,7 +97,7 @@ function build_branch() {
       GIT_BRANCH_SEGMENT_BG="${GIT_BRANCH_SEGMENT_CLEAN_BG}"
       POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO="${GIT_BRANCH_SEGMENT_BG}"
     fi
-    current_segment="${bg_color_esc}${fg_color_esc} ${detached_content}${branch_name} "
+    current_segment="${bg_color_esc}${fg_color_esc} ${symbol}${branch_name} "
   fi
 }
 

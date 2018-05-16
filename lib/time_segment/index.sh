@@ -9,7 +9,8 @@ if [[ ! -v core ]]; then
 fi
 
 function build_time_segment() {
-  TIME_SEGMENT="$(date +%T) "
+  build $TIME_SEGMENT_BG $TIME_SEGMENT_FG "$(date +%T)"
+  TIME_SEGMENT="${current_segment}"
 }
 
 function time_segment_end_seperator() {
