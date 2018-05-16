@@ -11,7 +11,7 @@ Also it doesn't have to be configured on two lines like the above, that is just 
 ## Requirements
 * &gt;= Bash 4.2
 * [asdf-vm](https://github.com/asdf-vm)
-* possibly https://github.com/powerline/fonts
+* install https://nerdfonts.com/
  
 ## Install
 

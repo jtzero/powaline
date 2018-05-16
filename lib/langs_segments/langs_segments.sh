@@ -25,19 +25,19 @@ function parse_versions() {
 
 parse_versions "${NewLangs}"
 
-build "${RUBY_SEGMENT_BG}" "${RUBY_SEGMENT_FG}" "$(echo -e '\U0001F48E') ruby ${lang_ruby_version}"
+build "${RUBY_SEGMENT_BG}" "${RUBY_SEGMENT_FG}" "${RUBY_SEGMENT_SYMBOL} ruby ${lang_ruby_version}"
 printf -v RUBY_SEGMENT '%q' "${current_segment}"
 echo "RUBY_SEGMENT=${RUBY_SEGMENT}"
 
-build "${NODEJS_SEGMENT_BG}" "${NODEJS_SEGMENT_FG}" "$(echo -e '\u2B21') nodejs ${lang_nodejs_version}"
+build "${NODEJS_SEGMENT_BG}" "${NODEJS_SEGMENT_FG}" "${NODEJS_SEGMENT_SYMBOL} nodejs ${lang_nodejs_version}"
 printf -v NODEJS_SEGMENT '%q' "${current_segment}"
 echo "NODEJS_SEGMENT=${NODEJS_SEGMENT}"
 
-build "${ELIXIR_SEGMENT_BG}" "${ELIXIR_SEGMENT_FG}" "$(echo -e '\U0001F4A7') elixir ${lang_elixir_version}"
+build "${ELIXIR_SEGMENT_BG}" "${ELIXIR_SEGMENT_FG}" "${ELIXIR_SEGMENT_SYMBOL} elixir ${lang_elixir_version}"
 printf -v ELIXIR_SEGMENT '%q' "${current_segment}"
 echo "ELIXIR_SEGMENT=${ELIXIR_SEGMENT}"
 
-build "${PYTHON_SEGMENT_BG}" "${PYTHON_SEGMENT_FG}" "$(echo -e '\U0001F40D') python ${lang_python_version}"
+build "${PYTHON_SEGMENT_BG}" "${PYTHON_SEGMENT_FG}" "${PYTHON_SEGMENT_SYMBOL} python ${lang_python_version}"
 printf -v PYTHON_SEGMENT '%q' "${current_segment}"
 echo "PYTHON_SEGMENT="${PYTHON_SEGMENT}""
 
