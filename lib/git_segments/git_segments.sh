@@ -74,31 +74,25 @@ function dirty_status {
   ahead="$(echo ""${branch_info}"" | grep -o -e 'ahead\s[[:digit:]]*' | cut -d' ' -f2)"
 }
 
-
-GIT_BRANCH_CLEAN_BG=148  # a light green color
-GIT_BRANCH_CLEAN_FG=0  # black
-GIT_BRANCH_DIRTY_BG=161  # pink/red
-GIT_BRANCH_DIRTY_FG=15  # white
-
 function build_branch() {
   local branch_name=$1
   local status="${2}${3}${4}"
   local detached="${5}"
-  local bg_color_esc="$(bg_esc $GIT_BRANCH_CLEAN_BG)"
-  local fg_color_esc="$(fg_esc $GIT_BRANCH_CLEAN_FG)"
+  local bg_color_esc="$(bg_esc $GIT_BRANCH_SEGMENT_CLEAN_BG)"
+  local fg_color_esc="$(fg_esc $GIT_BRANCH_SEGMENT_CLEAN_FG)"
   local detached_content=""
   current_segment=""
   if [ "${detached}" != "0" ]; then
-    detached_content="${GIT_DETACHED_SYMBOL} "
+    detached_content="${GIT_DETACHED_SEGMENT_SYMBOL} "
   fi
   if [ ! "${branch_name}" = "" ]; then
     if [ "${status}" != "000" ]; then
-      bg_color_esc="$(bg_esc $GIT_BRANCH_DIRTY_BG)"
-      fg_color_esc="$(fg_esc $GIT_BRANCH_DIRTY_FG)"
-      GIT_BRANCH_SEGMENT_BG="${GIT_BRANCH_DIRTY_BG}"
+      bg_color_esc="$(bg_esc $GIT_BRANCH_SEGMENT_DIRTY_BG)"
+      fg_color_esc="$(fg_esc $GIT_BRANCH_SEGMENT_DIRTY_FG)"
+      GIT_BRANCH_SEGMENT_BG="${GIT_BRANCH_SEGMENT_DIRTY_BG}"
       POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO="${GIT_BRANCH_SEGMENT_BG}"
     else
-      GIT_BRANCH_SEGMENT_BG="${GIT_BRANCH_CLEAN_BG}"
+      GIT_BRANCH_SEGMENT_BG="${GIT_BRANCH_SEGMENT_CLEAN_BG}"
       POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO="${GIT_BRANCH_SEGMENT_BG}"
     fi
     current_segment="${bg_color_esc}${fg_color_esc} ${detached_content}${branch_name} "
@@ -122,7 +116,6 @@ function build_git_segment() {
   fi
 }
 
-GIT_DETACHED_SYMBOL="$(echo -e '\u2693')"
 
 dirty_status
 build_branch "${branch_name}" "${modified}" "${untracked}" "${deleted}" "${detached}"
