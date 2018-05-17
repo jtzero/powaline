@@ -10,7 +10,7 @@ fi
 
 function build_number_of_jobs_segment() {
   # -d doesn't work mac
-  local sub_procs="$(ps -A -o ppid= | grep $$ | grep . -c )"
+  local sub_procs="$(ps -A -o ppid= | tr -d '[[:blank:]]' | grep "^$$" | grep . -c )"
 
   local number_of_sub_procs=$(expr $sub_procs - 1)
 
