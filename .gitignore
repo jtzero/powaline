@@ -1,1 +1,2 @@
-versions/*
+plugins/*
+!plugins/default_theme.sh
