@@ -139,10 +139,10 @@ TERMINATOR_SEGMENT_BODY='$'
 ##
 END_BG="${RESET_BG}"
 
-LOCK="$(echo -e '\U1F512')"
-NETWORK="$(echo -e '\U1F50C')"
-SEPERATOR="$(echo -e '\u2b80')"
-THIN_SEPERATOR="$(echo -e '\u276f')"
+#LOCK="$(echo -e '\U1F512')"
+#NETWORK="$(echo -e '\U1F50C')"
+#SEPERATOR="$(echo -e '\u2b80')"
+#THIN_SEPERATOR="$(echo -e '\u276f')"
 
 # TODO create new theme for patched fonts
 # switch to https://nerdfonts.com/
@@ -152,6 +152,17 @@ THIN_SEPERATOR="$(echo -e '\u276f')"
 #SEPERATOR="$(echo -e '\ue0b0')"
 #THIN_SEPERATOR="$(echo -e '\ue0b1')"
 #GIT_BRANCH_SEGMENT_SYMBOL="$(echo -e '\ue0a0')"
+
+#nerd font
+#LOCK="$(echo -e '\uf023')"
+#NETWORK="$(echo -e '\uf98c')"
+#PYTHON_SEGMENT_SYMBOL="$(echo -e '\ue235')"
+#NODEJS_SEGMENT_SYMBOL="$(echo -e '\uf898')"
+#ELIXIR_SEGMENT_SYMBOL="$(echo -e '\ue62d')"
+#RUBY_SEGMENT_SYMBOL="$(echo -e '\ue791')"
+#GIT_BRANCH_SEGMENT_SYMBOL="$(echo -e '\ue0a0')"
+#SEPERATOR="$(echo -e '\ue0b0')"
+#THIN_SEPERATOR="$(echo -e '\ue0b1')"
 
 ##
 config=("RUBY_SEGMENT" "NODEJS_SEGMENT" "ELIXIR_SEGMENT" "PYTHON_SEGMENT" "NEWLINE_SEGMENT" "USERNAME_SEGMENT" "CWD_HOSTNAME_SEGMENT" "CWD_HOME_SEGMENT" "CWD_PATH_SEGMENT" "CWD_READ_ONLY_SEGMENT" "GIT_BRANCH_SEGMENT" "GIT_BEHIND_SEGMENT" "GIT_AHEAD_SEGMENT" "GIT_CONFLICTED_SEGMENT" "GIT_STAGED_SEGMENT" "GIT_MODIFIED_SEGMENT" "GIT_UNTRACKED_SEGMENT" "NUMBER_OF_JOBS_SEGMENT" "TERMINATOR_SEGMENT")
