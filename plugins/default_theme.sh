@@ -139,10 +139,10 @@ TERMINATOR_SEGMENT_BODY='$'
 ##
 END_BG="${RESET_BG}"
 
-#LOCK="$(echo -e '\U1F512')"
-#NETWORK="$(echo -e '\U1F50C')"
-#SEPERATOR="$(echo -e '\u2b80')"
-#THIN_SEPERATOR="$(echo -e '\u276f')"
+LOCK="$(echo -e '\U1F512')"
+NETWORK="$(echo -e '\U1F50C')"
+SEPERATOR="$(echo -e '\u2b80')"
+THIN_SEPERATOR="$(echo -e '\u276f')"
 
 # TODO create new theme for patched fonts
 # switch to https://nerdfonts.com/
