@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function powaline() {
   if [ "${1}" = "load" ]; then
     if [[ ! $PROMPT_COMMAND =~ .*powaline_update_ps1.* ]]; then
