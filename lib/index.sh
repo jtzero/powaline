@@ -59,6 +59,7 @@ function build_segments() {
     for pid in "${pids[@]}";
     do
       if ! kill -0  "${pid}" 2> /dev/null ; then
+        # exited
         local fd="${fds[$pid]}"
         multi_value="$(cat <&$fd)"
         eval "${multi_value}"

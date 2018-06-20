@@ -9,6 +9,10 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
+if [[ ! -v subshell_utils ]]; then
+  source "${POWALINE_LIB_DIR}/subshell_segment_utils.sh"
+fi
+
 if [ -z ${NewGitStatus+x} ]; then
   NewGitStatus="$(source ""${POWALINE_LIB_DIR}/git_segments/cmd.sh"")"
 fi
@@ -67,7 +71,7 @@ function dirty_status {
     if [[ "${branch_info}" = *"No commits yet"* ]]; then
       branch_name="Big Bang"
     else
-      branch_name=$(echo $branch_info | cut -d ' ' -f2 | cut -d'.' -f1)
+      branch_name=$(echo $branch_info | cut -d ' ' -f2 | sed -r 's/(.+?)\.{3}.+/\1/g')
     fi
   fi
   behind="$(echo ""${branch_info}"" | grep -o -e 'behind\s[[:digit:]]*' | cut -d' ' -f2)"
