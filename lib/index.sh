@@ -62,6 +62,7 @@ function build_segments() {
         # exited
         local fd="${fds[$pid]}"
         multi_value="$(cat <&$fd)"
+        #echo "#:::::"$multi_value
         eval "${multi_value}"
         unset pids[$j]
         unset fds[$pid]

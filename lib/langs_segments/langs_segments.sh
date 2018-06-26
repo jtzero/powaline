@@ -9,7 +9,9 @@ if [[ ! -v core ]]; then
 fi
 
 if [ -z ${NewLangs+x} ]; then
-  NewLangs="$(source ""${POWALINE_LIB_DIR}/langs_segments/cmd.sh"")"
+  #TODO handle error
+  # its coming through on stderr?
+  NewLangs="$(source ""${POWALINE_LIB_DIR}/langs_segments/cmd.sh"" 2>&1)"
 fi
 
 function parse_versions() {

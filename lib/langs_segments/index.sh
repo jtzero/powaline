@@ -8,7 +8,7 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
-NewLangs="$(source ""${POWALINE_LIB_DIR}/langs_segments/cmd.sh"")"
+NewLangs="$(source ""${POWALINE_LIB_DIR}/langs_segments/cmd.sh"" 2>&1 )"
 if [ "${POWALINE_LANGS_SEGMENTS_MEMO}" != "${NewLangs}" ] || [ -z ${POWALINE_LANGS_SEGMENTS_MEMO+x} ]; then
   POWALINE_LANGS_SEGMENTS_MEMO="${NewLangs}"
   source "${POWALINE_LIB_DIR}/langs_segments/langs_segments.sh"
