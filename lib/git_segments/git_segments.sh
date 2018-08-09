@@ -44,6 +44,7 @@ function dirty_status {
   branch_name=""
   while read line ; do
       case "${line}" in
+        '#%'*)                    commit_num=$line ; ;;
         '##'*)                    branch_info=$line ; ;;
         @('UA'|'AU'|'AA')*)       ((they_added++)) ; ((conflicted++)) ; ;;
         @('DU'|'DD'|'UD')*)       ((deleted++)) ; ((conflicted++)) ; ;;
@@ -71,7 +72,11 @@ function dirty_status {
     if [[ "${branch_info}" = *"No commits yet"* ]]; then
       branch_name="Big Bang"
     else
-      branch_name=$(echo $branch_info | cut -d ' ' -f2 | sed -r 's/(.+?)\.{3}.+/\1/g')
+      if [[ "${branch_info}" = *"(no branch)"* ]]; then
+        branch_name="${commit_num}"
+      else
+        branch_name=$(echo $branch_info | cut -d ' ' -f2 | sed -r 's/(.+?)\.{3}.+/\1/g')
+      fi
     fi
   fi
   behind="$(echo ""${branch_info}"" | grep -o -e 'behind\s[[:digit:]]*' | cut -d' ' -f2)"
