@@ -72,11 +72,11 @@ function dirty_status {
     if [[ "${branch_info}" = *"No commits yet"* ]]; then
       branch_name="Big Bang"
     else
+      local to_strip="${branch_info}"
       if [[ "${branch_info}" = *"(no branch)"* ]]; then
-        branch_name="${commit_num}"
-      else
-        branch_name=$(echo $branch_info | cut -d ' ' -f2 | sed -r 's/(.+?)\.{3}.+/\1/g')
+        to_strip="${commit_num}"
       fi
+      branch_name=$(echo $to_strip | cut -d ' ' -f2 | sed -r 's/(.+?)\.{3}.+/\1/g')
     fi
   fi
   behind="$(echo ""${branch_info}"" | grep -o -e 'behind\s[[:digit:]]*' | cut -d' ' -f2)"
