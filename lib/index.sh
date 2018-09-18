@@ -53,6 +53,8 @@ function build_segments() {
       fi
     fi
   done
+  local outloop=$'
+'
   while [ ${#fds[@]} -ne 0 ]
   do
     local j=0;
@@ -61,16 +63,37 @@ function build_segments() {
       if ! kill -0  "${pid}" 2> /dev/null ; then
         # exited
         local fd="${fds[$pid]}"
-        multi_value="$(cat <&$fd)"
-        #echo "#:::::"$multi_value
+        #multi_value="$(cat <&$fd)"
+        printf -v multi_value '\n'
+        until [ $fd_read ]
+        do
+          read <&$fd line
+          if [ $? != 0 ]; then
+            fd_read=1
+            continue
+          fi
+          multi_value+="${line}
+"
+        done
+        unset fd_read
         eval "${multi_value}"
         unset pids[$j]
         unset fds[$pid]
       elif [ ${#pids[@]} -eq 1 ]; then
-        wait "${pid}"
+        local fd="${fds[$pid]}"
+        while kill -0  "${pid}" 2> /dev/null
+        do
+          read -d '' line <&$fd
+          outloop+="${line}
+"
+        done
+        eval "${outloop}"
+        unset pids[$j]
+        unset fds[$pid]
       fi
       ((j++))
     done
+    pids=("${pids[@]}")
   done
 }
 

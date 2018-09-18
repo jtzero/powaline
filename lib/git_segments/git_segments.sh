@@ -131,31 +131,42 @@ function build_git_segment() {
 dirty_status
 build_branch "${branch_name}" "${modified}" "${untracked}" "${deleted}" "${detached}"
 printf -v GIT_BRANCH_SEGMENT '%q' "${current_segment}"
-echo "GIT_BRANCH_SEGMENT=${GIT_BRANCH_SEGMENT}"
-echo "GIT_BRANCH_SEGMENT_BG=${GIT_BRANCH_SEGMENT_BG}"
-echo "POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO=${POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO}"
-echo "POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO_UPDATED='1'"
+
+printf '%q' "GIT_BRANCH_SEGMENT=${GIT_BRANCH_SEGMENT}"
+echo ''
+printf '%q' "GIT_BRANCH_SEGMENT_BG=${GIT_BRANCH_SEGMENT_BG}"
+echo ''
+printf '%q' "POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO=${POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO}"
+echo ''
+printf '%q' "POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO_UPDATED='1'"
+echo ''
 
 build_git_segment 'behind' $behind
 printf -v GIT_BEHIND_SEGMENT '%q' "${current_segment}"
-echo "GIT_BEHIND_SEGMENT=${GIT_BEHIND_SEGMENT}"
+printf '%q' "GIT_BEHIND_SEGMENT=${GIT_BEHIND_SEGMENT}"
+echo ''
 
 build_git_segment 'ahead' $ahead
 printf -v GIT_AHEAD_SEGMENT '%q' "${current_segment}"
-echo "GIT_AHEAD_SEGMENT=${GIT_AHEAD_SEGMENT}"
+printf '%q' "GIT_AHEAD_SEGMENT=${GIT_AHEAD_SEGMENT}"
+echo ''
 
 build_git_segment 'conflicted' $conflicted
 printf -v GIT_CONFLICTED_SEGMENT '%q' "${current_segment}"
-echo "GIT_CONFLICTED_SEGMENT=${GIT_CONFLICTED_SEGMENT}"
+printf '%q' "GIT_CONFLICTED_SEGMENT=${GIT_CONFLICTED_SEGMENT}"
+echo ''
 
 build_git_segment 'staged' $staged
 printf -v GIT_STAGED_SEGMENT '%q' "${current_segment}"
-echo "GIT_STAGED_SEGMENT=${GIT_STAGED_SEGMENT}"
+printf '%q' "GIT_STAGED_SEGMENT=${GIT_STAGED_SEGMENT}"
+echo ''
 
 build_git_segment 'modified' $modified
 printf -v GIT_MODIFIED_SEGMENT '%q' "${current_segment}"
-echo "GIT_MODIFIED_SEGMENT=${GIT_MODIFIED_SEGMENT}"
+printf '%q' "GIT_MODIFIED_SEGMENT=${GIT_MODIFIED_SEGMENT}"
+echo ''
 
 build_git_segment 'untracked' $untracked
 printf -v GIT_UNTRACKED_SEGMENT '%q' "${current_segment}"
-echo "GIT_UNTRACKED_SEGMENT=${GIT_UNTRACKED_SEGMENT}"
+printf '%q' "GIT_UNTRACKED_SEGMENT=${GIT_UNTRACKED_SEGMENT}"
+echo ''

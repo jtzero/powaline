@@ -29,17 +29,21 @@ parse_versions "${NewLangs}"
 
 build "${RUBY_SEGMENT_BG}" "${RUBY_SEGMENT_FG}" "${RUBY_SEGMENT_SYMBOL} ruby ${lang_ruby_version}"
 printf -v RUBY_SEGMENT '%q' "${current_segment}"
-echo "RUBY_SEGMENT=${RUBY_SEGMENT}"
+printf '%q' "RUBY_SEGMENT=${RUBY_SEGMENT}"
+echo ''
 
 build "${NODEJS_SEGMENT_BG}" "${NODEJS_SEGMENT_FG}" "${NODEJS_SEGMENT_SYMBOL} nodejs ${lang_nodejs_version}"
 printf -v NODEJS_SEGMENT '%q' "${current_segment}"
-echo "NODEJS_SEGMENT=${NODEJS_SEGMENT}"
+printf '%q' "NODEJS_SEGMENT=${NODEJS_SEGMENT}"
+echo ''
 
 build "${ELIXIR_SEGMENT_BG}" "${ELIXIR_SEGMENT_FG}" "${ELIXIR_SEGMENT_SYMBOL} elixir ${lang_elixir_version}"
 printf -v ELIXIR_SEGMENT '%q' "${current_segment}"
-echo "ELIXIR_SEGMENT=${ELIXIR_SEGMENT}"
+printf '%q' "ELIXIR_SEGMENT=${ELIXIR_SEGMENT}"
+echo ''
 
 build "${PYTHON_SEGMENT_BG}" "${PYTHON_SEGMENT_FG}" "${PYTHON_SEGMENT_SYMBOL} python ${lang_python_version}"
 printf -v PYTHON_SEGMENT '%q' "${current_segment}"
-echo "PYTHON_SEGMENT="${PYTHON_SEGMENT}""
+printf '%q' "PYTHON_SEGMENT=${PYTHON_SEGMENT}"
+echo ''
 
