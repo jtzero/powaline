@@ -31,9 +31,8 @@ if [ -z ${POWALINE_GIT_SEGMENTS_CHANGED_FLAG+x} ] || [ "${POWALINE_GIT_SEGMENTS_
   fi
   unset NewGitStatus
 fi
-unset NewGitChangedMemo
-unset diff1
-unset diff2
-unset diff3
+unset filesChanged
+unset filesStaged
+unset untrackedFiles
 unset branch_check
 unset ahead_behind
