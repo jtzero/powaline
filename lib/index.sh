@@ -63,7 +63,6 @@ function build_segments() {
       if ! kill -0  "${pid}" 2> /dev/null ; then
         # exited
         local fd="${fds[$pid]}"
-        #multi_value="$(cat <&$fd)"
         printf -v multi_value '\n'
         until [ $fd_read ]
         do
@@ -113,12 +112,17 @@ function append_output_variables {
   local value=""
   local memo_name_holder="${upcase_segment_name}_MEMO_NAME"
   local memo_name="${!memo_name_holder}"
+  local flag_name_holder="${upcase_segment_name}_FLAG_NAME"
+  local flag_name="${!flag_name_holder}"
   local has_memo=0
+  if [ "${flag_name}" != '' ] && [ -n "${!flag_name+x}" ]; then
+    add_memo_to_output "${flag_name}"
+  fi
   if [ "${memo_name}" != '' ] && [ -n "${!memo_name+x}" ]; then
     has_memo='1'
     add_memo_to_output "${memo_name}"
     local memo_updated_name="${memo_name}_UPDATED"
-    # was it updated?
+    # was it updated since it was added to output?
     if [ "${!memo_updated_name}" = "1" ]; then
       value="${!upcase_segment_name}"
       if [ "${value}" = "" -o "${value}" = "''" ]; then
