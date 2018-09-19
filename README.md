@@ -12,7 +12,8 @@ Also it doesn't have to be configured on two lines like the above, that is just 
 * &gt;= Bash 4.2
 * [asdf-vm](https://github.com/asdf-vm)
 * install https://nerdfonts.com/
- 
+# Git 1.6.3 or newer. 
+
 ## Install
 
 `git clone https://github.com/jtzero/powaline.git ~/.powaline`
