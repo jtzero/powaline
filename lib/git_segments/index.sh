@@ -9,7 +9,9 @@ if [[ ! -v core ]]; then
 fi
 
 # TODO add additional cmd file for diff checking
-NewGitChangedFlag="$(git diff --no-ext-diff --quiet --exit-code; echo $?)$(git diff-index --cached --quiet HEAD --; echo $?)$(git ls-files --others --exclude-standard --error-unmatch -- '*' >/dev/null 2>/dev/null; echo $?)"
+diff1="$(git diff --no-ext-diff --quiet --exit-code > /dev/null 2>&1; echo $?)"
+diff2="$(git diff-index --cached --quiet HEAD -- > /dev/null 2>&1; echo $?)"
+NewGitChangedFlag="${diff1}${diff2}$(git ls-files --others --exclude-standard --error-unmatch -- '*' >/dev/null 2>/dev/null; echo $?)"
 if [ -z ${POWALINE_GIT_SEGMENTS_CHANGED_FLAG+x} ] || [ "${POWALINE_GIT_SEGMENTS_CHANGED_FLAG}" != "${NewGitChangedFlag}" ]; then
   NewGitStatus="$(source ""${POWALINE_LIB_DIR}/git_segments/cmd.sh"")"
   if [ "${POWALINE_GIT_STATUS_MEMO}" != "${NewGitStatus}" ] || [ -z ${POWALINE_GIT_STATUS_MEMO+x} ]; then
@@ -26,3 +28,5 @@ if [ -z ${POWALINE_GIT_SEGMENTS_CHANGED_FLAG+x} ] || [ "${POWALINE_GIT_SEGMENTS_
   unset NewGitStatus
 fi
 unset NewGitChangedMemo
+unset diff1
+unset diff2
