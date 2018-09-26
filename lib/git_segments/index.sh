@@ -9,13 +9,13 @@ if [[ ! -v core ]]; then
 fi
 
 # TODO add additional cmd/flag file for diff checking
-diff1="$(git diff --no-ext-diff --quiet --exit-code > /dev/null 2>&1; echo $?)"
-diff2="$(git diff-index --cached --quiet HEAD -- > /dev/null 2>&1; echo $?)"
-diff3="$(git ls-files --others --exclude-standard --error-unmatch -- '*' >/dev/null 2>/dev/null; echo $?)"
+filesChanged="$(git diff --no-ext-diff --quiet --exit-code > /dev/null 2>&1; echo $?)"
+filesStaged="$(git diff-index --cached --quiet HEAD -- > /dev/null 2>&1; echo $?)"
+untrackedFiles="$(git ls-files --others --exclude-standard --error-unmatch -- '*' 2>/dev/null | wc | tr -s \" \")"
 # git status -sb is faster on small repos, but slower on larger ones
 branch_check="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
-ahead_behind="$(git rev-list --left-right --count HEAD...origin/""${branch_check}"")"
-NewGitChangedFlag="${diff1}${diff2}${diff3}${branch_check}${ahead_behind}"
+ahead_behind="$(git rev-list --left-right --count HEAD...origin/""${branch_check}"" 2>/dev/null)"
+NewGitChangedFlag="${filesChanged}${filesStaged}${untrackedFiles}${branch_check}${ahead_behind}"
 if [ -z ${POWALINE_GIT_SEGMENTS_CHANGED_FLAG+x} ] || [ "${POWALINE_GIT_SEGMENTS_CHANGED_FLAG}" != "${NewGitChangedFlag}" ]; then
   NewGitStatus="$(source ""${POWALINE_LIB_DIR}/git_segments/cmd.sh"")"
   if [ "${POWALINE_GIT_STATUS_MEMO}" != "${NewGitStatus}" ] || [ -z ${POWALINE_GIT_STATUS_MEMO+x} ]; then
