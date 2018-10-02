@@ -9,9 +9,9 @@ if [[ ! -v core ]]; then
 fi
 
 # TODO add additional cmd/flag file for diff checking
-filesChanged="$(git diff --no-ext-diff --quiet --exit-code > /dev/null 2>&1; echo $?)"
+filesChanged="$(git diff --name-only 2> /dev/null | wc -l | tr -d \"[:blank:]\")"
 filesStaged="$(git diff-index --cached --quiet HEAD -- > /dev/null 2>&1; echo $?)"
-untrackedFiles="$(git ls-files --others --exclude-standard --error-unmatch -- '*' 2>/dev/null | wc -l | tr -s \" \")"
+untrackedFiles="$(git ls-files --others --exclude-standard --error-unmatch -- '*' 2>/dev/null | wc -l | tr -d \"[:blank:]\")"
 # git status -sb is faster on small repos, but slower on larger ones
 branch_check="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
 ahead_behind="$(git rev-list --left-right --count HEAD...origin/""${branch_check}"" 2>/dev/null)"
