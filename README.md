@@ -32,6 +32,8 @@ to where ever you put
 
 ## TODO
 * better font testing
+* add shellcheck
+* add bats
 
 ## Known Issues
 * no Erlang support
