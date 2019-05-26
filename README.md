@@ -10,6 +10,7 @@ Also it doesn't have to be configured on two lines like the above, that is just 
 
 ## Requirements
 * &gt;= Bash 4.2
+* gnu parallel
 * [asdf-vm](https://github.com/asdf-vm)
 * install https://nerdfonts.com/
 # Git 1.6.3 or newer. 
@@ -41,3 +42,18 @@ to where ever you put
 * no HG or Svn Support
 * only uses asdf-vm
 * no .ssh pipe  awareness
+
+### Citation
+@article{Tange2011a,
+  title = {GNU Parallel - The Command-Line Power Tool},
+  author = {O. Tange},
+  address = {Frederiksberg, Denmark},
+  journal = {;login: The USENIX Magazine},
+  month = {Feb},
+  number = {1},
+  volume = {36},
+  url = {http://www.gnu.org/s/parallel},
+  year = {2011},
+  pages = {42-47},
+  doi = {http://dx.doi.org/10.5281/zenodo.16303}
+}

@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-asdf current
+parallel --tagstring {} asdf current {} --args{} ::: nodejs ruby python elixir
