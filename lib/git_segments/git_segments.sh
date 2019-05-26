@@ -17,18 +17,18 @@ if [ -z ${NewGitStatus+x} ]; then
   NewGitStatus="$(source ""${POWALINE_LIB_DIR}/git_segments/cmd.sh"")"
 fi
 
-function clear_ifs() {
+clear_ifs() {
   if [ "$IFS" != '' ]; then
     OLDIFS=$IFS
     IFS=''
   fi
 }
 
-function reset_ifs() {
+reset_ifs() {
   IFS=$OLDIFS
 }
 
-function dirty_status {
+dirty_status() {
   clear_ifs
   modified=0
   staged=0
@@ -83,7 +83,7 @@ function dirty_status {
   ahead="$(echo ""${branch_info}"" | grep -o -e 'ahead\s[[:digit:]]*' | cut -d' ' -f2)"
 }
 
-function build_branch() {
+build_branch() {
   local branch_name=$1
   local status="${2}${3}${4}"
   local detached="${5}"
@@ -110,7 +110,7 @@ function build_branch() {
   fi
 }
 
-function build_git_segment() {
+build_git_segment() {
   local segment_name="git_${1}_segment"
   local count="${2}"
   local upcase_segment_name="${segment_name^^}"

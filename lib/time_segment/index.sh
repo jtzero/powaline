@@ -8,12 +8,12 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
-function build_time_segment() {
+build_time_segment() {
   build $TIME_SEGMENT_BG $TIME_SEGMENT_FG "$(date +%T)"
   TIME_SEGMENT="${current_segment}"
 }
 
-function time_segment_end_seperator() {
+time_segment_end_seperator() {
   echo "$(fg_esc $TIME_SEGMENT_BG)${1}${SEPERATOR}"
 }
 

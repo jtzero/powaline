@@ -13,7 +13,7 @@ printf -v CWD_HOSTNAME_SEGMENT '%q' "${current_segment}"
 printf '%q' "CWD_HOSTNAME_SEGMENT=${CWD_HOSTNAME_SEGMENT}"
 printf '\n'
 
-function setup_home_and_path() {
+setup_home_and_path() {
   local path_seperator_fg_esc="$(fg_esc $CWD_PATH_SEPERATOR_FG)"
   local path_fg_color_esc="$(fg_esc $CWD_PATH_SEGMENT_FG)"
   local tmp_path_body=""

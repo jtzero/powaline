@@ -8,24 +8,24 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
-function git_branch_segment_end_seperator() {
+git_branch_segment_end_seperator() {
   echo "$(fg_esc $POWALINE_GIT_BRANCH_SEGMENT_BG_MEMO)${1}${SEPERATOR}"
 }
-function git_behind_segment_end_seperator() {
+git_behind_segment_end_seperator() {
   echo "$(fg_esc $GIT_BEHIND_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function git_ahead_segment_end_seperator() {
+git_ahead_segment_end_seperator() {
   echo "$(fg_esc $GIT_AHEAD_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function git_conflicted_segment_end_seperator() {
+git_conflicted_segment_end_seperator() {
   echo "$(fg_esc $GIT_CONFLICTED_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function git_staged_segment_end_seperator() {
+git_staged_segment_end_seperator() {
   echo "$(fg_esc $GIT_STAGED_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function git_modified_segment_end_seperator() {
+git_modified_segment_end_seperator() {
   echo "$(fg_esc $GIT_MODIFIED_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function git_untracked_segment_end_seperator() {
+git_untracked_segment_end_seperator() {
   echo "$(fg_esc $GIT_UNTRACKED_SEGMENT_BG)${1}${SEPERATOR}"
 }

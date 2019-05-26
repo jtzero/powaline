@@ -8,7 +8,7 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
-function build_number_of_jobs_segment() {
+build_number_of_jobs_segment() {
   # -d doesn't work mac
   local sub_procs="$(ps -A -o ppid= | tr -d '[[:blank:]]' | grep "^$$" | grep . -c )"
 
@@ -21,7 +21,7 @@ function build_number_of_jobs_segment() {
   NUMBER_OF_JOBS_SEGMENT="${current_segment}"
 }
 
-function number_of_jobs_segment_end_seperator() {
+number_of_jobs_segment_end_seperator() {
   echo "$(fg_esc $NUMBER_OF_JOBS_SEGMENT_BG)${1}${SEPERATOR}"
 }
 

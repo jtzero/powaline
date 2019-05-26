@@ -22,7 +22,7 @@ if [[ ! -v current_theme ]]; then
   source "${POWALINE_ROOT_DIR}/plugins/current_theme.sh"
 fi
 
-function build() {
+build() {
   local bg_color="${1}"
   local fg_color="${2}"
   local content="${3}"
@@ -38,7 +38,7 @@ function build() {
   fi
 }
 
-function append_sub() {
+append_sub() {
   local bg_color="${1}"
   local fg_color="${2}"
   local content="${3}"

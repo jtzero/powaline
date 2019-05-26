@@ -8,15 +8,15 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
-function python_segment_end_seperator() {
+python_segment_end_seperator() {
   echo "$(fg_esc $PYTHON_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function ruby_segment_end_seperator() {
+ruby_segment_end_seperator() {
   echo "$(fg_esc $RUBY_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function elixir_segment_end_seperator() {
+elixir_segment_end_seperator() {
   echo "$(fg_esc $ELIXIR_SEGMENT_BG)${1}${SEPERATOR}"
 }
-function nodejs_segment_end_seperator() {
+nodejs_segment_end_seperator() {
   echo "$(fg_esc $NODEJS_SEGMENT_BG)${1}${SEPERATOR}"
 }

@@ -11,7 +11,7 @@ PreviousSeperator=""
 Powaline=""
 LastVisibleSegment=""
 
-function assemble() {
+assemble() {
   build_segments
   for segment_name in "${config[@]}";
   do
@@ -27,7 +27,7 @@ PS1="${Powaline}${PreviousSeperator}${end}"
 "
 }
 
-function build_segments() {
+build_segments() {
   local i=0;
   local fds=();
   local pids=()
@@ -96,7 +96,7 @@ function build_segments() {
   done
 }
 
-function add_memo_to_output() {
+add_memo_to_output() {
   local memo_name="${1}"
   local memo_name_added="${memo_name}_ADDED"
   if [ "${!memo_name_added}" != "1" ]; then
@@ -105,7 +105,7 @@ function add_memo_to_output() {
   fi
 }
 
-function append_output_variables {
+append_output_variables() {
   local upcase_segment_name="${1}"
   local upcase_segment_name_prefix="${2}"
   local upcase_segment_name_w_prefix="${upcase_segment_name_prefix}${upcase_segment_name}"
@@ -152,7 +152,7 @@ unset ${upcase_segment_name_w_prefix}
   fi
 }
 
-function get_previous_seperator() {
+get_previous_seperator() {
   PreviousSeperator=""
   local current_upcase_segment_name="${1}"
   if [ "${LastVisibleSegment}" != "" ]; then
@@ -179,7 +179,7 @@ function get_previous_seperator() {
   fi
 }
 
-function set_last_visible_segment() {
+set_last_visible_segment() {
   local segment_name="${1}"
   if [ "${segment_name}" = "NEWLINE_SEGMENT" ]; then
     LastVisibleSegment=""
@@ -188,7 +188,7 @@ function set_last_visible_segment() {
   fi
 }
 
-function add_variable_as_heredoc_to_output() {
+add_variable_as_heredoc_to_output() {
   local name="${1}"
   local value="${2}"
   Output="${Output}
@@ -198,7 +198,7 @@ EOF
 "
 }
 
-function add_variable_to_output() {
+add_variable_to_output() {
   local name="${1}"
   local value="${2}"
   Output="${Output}
@@ -206,7 +206,7 @@ ${name}=""${value}""
 "
 }
 
-function add_comment() {
+add_comment() {
   Output="${Output}
 #${1}
 "

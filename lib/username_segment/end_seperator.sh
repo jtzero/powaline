@@ -8,6 +8,6 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
-function username_segment_end_seperator() {
+username_segment_end_seperator() {
   echo "$(fg_esc $USERNAME_SEGMENT_BG)${1}${SEPERATOR}"
 }

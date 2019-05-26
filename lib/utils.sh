@@ -12,18 +12,18 @@ RESET_BG_SUB="\\\[\\\e[49m\\\]"
 # fg = 38
 # bg = 48
 # printf "\e[${fgbg};5;%sm  %3s  \e[0m" $color $color
-function bg_esc() {
+bg_esc() {
   echo '\[\e[48;5;'"${1}"'m\]'
 }
 
-function fg_esc() {
+fg_esc() {
   echo '\[\e[38;5;'"${1}"'m\]'
 }
 
-function bg_esc_sub() {
+bg_esc_sub() {
   echo "\\\[\\\e[48;5;${1}m\\\]"
 }
 
-function fg_esc_sub() {
+fg_esc_sub() {
   echo "\\\[\\\e[38;5;${1}m\\\]"
 }

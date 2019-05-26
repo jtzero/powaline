@@ -8,7 +8,7 @@ if [[ ! -v core ]]; then
   source "${POWALINE_LIB_DIR}/core.sh"
 fi
 
-function build_username_segment() {
+build_username_segment() {
   username="$(source ""${POWALINE_LIB_DIR}/username_segment/cmd.sh"")"
   if [ "$username" = "root" ]; then
     build $USERNAME_ROOT_SEGMENT_BG $USERNAME_ROOT_SEGMENT_FG "${username}"

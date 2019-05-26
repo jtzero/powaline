@@ -14,7 +14,7 @@ if [ -z ${NewLangs+x} ]; then
   NewLangs="$(source ""${POWALINE_LIB_DIR}/langs_segments/cmd.sh"" 2>&1)"
 fi
 
-function parse_versions() {
+parse_versions() {
   local cmd="${1}"
   local index=0;
   # TODO handle error
