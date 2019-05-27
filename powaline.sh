@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function powaline() {
+powaline() {
   if [ "${1}" = "load" ]; then
     if [[ ! $PROMPT_COMMAND =~ .*powaline_update_ps1.* ]]; then
       PROMPT_COMMAND="powaline_update_ps1; $PROMPT_COMMAND"
@@ -12,7 +12,7 @@ function powaline() {
 }
 
 # TODO remove
-function powaline_update_ps1() {
+powaline_update_ps1() {
   local root_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   local arg="$(source ${root_dir}/lib/index.sh)"
   #echo "${arg}"
