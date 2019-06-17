@@ -12,7 +12,8 @@ Also it doesn't have to be configured on two lines like the above, that is just 
 * &gt;= Bash 4.2
 * gnu parallel
 * [asdf-vm](https://github.com/asdf-vm)
-* install https://nerdfonts.com/
+* install https://nerdfonts.com/ I.E. ./install.sh UbuntuMono
+* install parallel
 # Git 1.6.3 or newer. 
 
 ## Install
