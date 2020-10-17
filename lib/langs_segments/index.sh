@@ -9,6 +9,7 @@ if [[ ! -v core ]]; then
 fi
 
 NewLangs="$(source ""${POWALINE_LIB_DIR}/langs_segments/cmd.sh"" 2>&1 )"
+                                                              # this will never be false
 if [ "${POWALINE_LANGS_SEGMENTS_MEMO}" != "${NewLangs}" ] || [ -z ${POWALINE_LANGS_SEGMENTS_MEMO+x} ]; then
   POWALINE_LANGS_SEGMENTS_MEMO="${NewLangs}"
   source "${POWALINE_LIB_DIR}/langs_segments/langs_segments.sh"

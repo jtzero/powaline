@@ -20,7 +20,7 @@ parse_versions() {
   # TODO handle error
   while read line ; do
     local lang_name="$(echo $line| cut -d ' ' -f1)"
-    local ver="$(echo $line | tr -s ' ' | cut -d ' ' -f2 | cut -d '(' -f1 )"
+    local ver="$(echo $line | tr -s ' ' | cut -d ' ' -f3 | cut -d '(' -f1 )"
     declare -g lang_${lang_name}_version="${ver}"
   done <<< "$cmd"
 }
